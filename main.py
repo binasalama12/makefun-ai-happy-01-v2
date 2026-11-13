@@ -1,4 +1,4 @@
-"""make.fun image entry (v0 hero): copy the bundled picture to /output/entry.png.
+"""make.fun image entry: v0 hero — copy the bundled picture to /output/entry.png.
 
 The picture (entry.png, in this repository) was generated for this bounty.
 Copying the exact bytes keeps both grader runs byte-identical.
