@@ -9,12 +9,19 @@ import shutil
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 
-def main():
-    # /output in the grader, MAKEFUN_OUTPUT_DIR when run locally.
+def copy_entry():
+    """Copy the bundled picture to the grader output directory."""
     out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
     os.makedirs(out_dir, exist_ok=True)
-    src = os.path.join(HERE, "entry.png")
-    shutil.copyfile(src, os.path.join(out_dir, "entry.png"))
+    picture = os.path.join(HERE, "entry.png")
+    target = os.path.join(out_dir, "entry.png")
+    if not os.path.isfile(picture):
+        raise FileNotFoundError(f"bundled picture missing: {picture}")
+    shutil.copyfile(picture, target)
+
+
+def main():
+    copy_entry()
 
 
 if __name__ == "__main__":
